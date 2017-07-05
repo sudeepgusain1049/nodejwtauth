@@ -1,0 +1,26 @@
+{
+  "name": "nodejwtauth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "grunt": "^1.0.1",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.10.8",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "grunt-express-server": "^0.5.3",
+    "grunt-run": "^0.7.0",
+    "grunt-run-node": "^0.1.7",
+    "grunt-shell-spawn": "^0.3.10"
+  }
+}
