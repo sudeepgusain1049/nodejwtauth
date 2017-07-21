@@ -12,19 +12,23 @@ module.exports = function (app, secureRoutes, unsecureRoutes) {
 
     unsecureRoutes.post('/token', function (req, res, next) {
 
-        User.findOne({ userName: req.body.userName, password: req.body.password }, function (err, docs) {
+        User.findOne({ userName: req.body.userName, password: req.body.password }, { "userName": 1, _id: 0 }, function (err, docs) {
 
             var response = new Response();
 
-
             if (err || !docs) {
+                
                 response.status = 'error';
                 response.message = 'User with this credentials does not exists.';
                 res.send(response);
                 return;
             }
-            
-            var token = jwt.sign(docs, process.env.SECERET_KEY, { expiresIn: 4000 });
+
+            var tokenParams = {
+                userName: req.body.userName
+            };
+
+            var token = jwt.sign(tokenParams, process.env.SECERET_KEY, { expiresIn: 4000 });
             response.status = 'success';
             response.token = token;
             res.send(response);

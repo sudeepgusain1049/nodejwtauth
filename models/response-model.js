@@ -1,7 +1,6 @@
-module.exports = function()
-{
-    status : "";
+module.exports = function (status = '', message = '') {
+    status: status;
 
-    message : "";
+    message: message;
 
 };
